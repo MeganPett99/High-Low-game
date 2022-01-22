@@ -1,0 +1,27 @@
+low = 1
+high = 1000
+
+print("please think of a number between {} and {} ".format(low, high))
+input("press enter to start ")
+
+guesses = 1
+
+while low != high:
+    guess = low + (high - low) // 2
+    high_low = input("my guess is {}. should I guess higher or lower? "
+                     " please enter higher, lower or correct".format(guess)).casefold()
+
+    if high_low == "higher":
+        low = guess + 1
+    elif high_low == "lower":
+        high = guess - 1
+    elif high_low == "correct":
+        break
+    else:
+        print(" please enter high, low or correct")
+
+    # guesses = guesses + 1
+    guesses += 1       # Augemented assignment
+else:
+    print("you thought of the number {}".format(low))
+    print("I got it in {} guesses!".format(guesses))
